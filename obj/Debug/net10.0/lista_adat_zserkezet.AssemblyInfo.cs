@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lista_adat_zserkezet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91717fcb6e8df36170496723e6d8c75c2730dfa8")]
 [assembly: System.Reflection.AssemblyProductAttribute("lista_adat_zserkezet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lista_adat_zserkezet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
