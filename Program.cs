@@ -132,6 +132,23 @@ internal class Program
         }
 
     }
+
+    static List<string> Forditas()
+    {
+        List<string> forditottja = new List<string>();
+        
+        foreach (string item in sutik)
+        {
+            string seged = "";
+            for (int i = item.Length - 1; i >= 0; i--)
+            {
+                seged += item[i];
+            }
+            forditottja.Add(seged);
+        }
+        
+        return forditottja;
+    }
     static void Main(string[] args)
     {
         // Feltolt(20);
@@ -163,5 +180,9 @@ internal class Program
 
         Console.WriteLine("-----------");
         Magashang();
+        Console.WriteLine("-----------");
+        List<string> forditas = Forditas();
+        foreach (string item in forditas)
+            Console.WriteLine(item);
     }
 }
