@@ -3,6 +3,7 @@
 internal class Program
 {
     private static List<int> lista = new List<int>();
+    private static List<string> sutik = new List<string>{"csokis muffin","epertorta","túrótorta","isler","citromtorta","francia krémes","almás muffin","csokis keksz","Rákoczi túros","csokis szelet","édes szölő", "Krémes édes"};
     static Random r = new Random();
     static void Feltolt(int elemekSzama)
     {
@@ -15,6 +16,7 @@ internal class Program
         for (int i = 0; i < lista.Count; i++)
         {
             Console.Write(lista[i]+ " ");
+            
         }
 
         Console.WriteLine();
@@ -48,10 +50,118 @@ internal class Program
         double atlag = ossz / db;
         Console.WriteLine($"Az átlag: {Math.Round(atlag,2)}");
     }
+
+    static void UtikElehlyezese()
+    {
+        sutik.Add("csoki torta");
+        foreach (string suti in sutik)
+        {
+            Console.WriteLine(suti);
+        }
+    }
+
+    static void Csokissutik()
+    {
+        int db = 0;
+        foreach (var item in sutik)
+        {
+            if (item.Contains("csoki"))
+            {
+                Console.WriteLine(item);
+                db++;
+            }
+        }
+
+        Console.WriteLine($"{db} darab csokis édesség van.");
+    }
+
+    static void LeghosszabbNevu()
+    {
+        string leghosszabb = sutik[0];
+        foreach (string item in sutik)
+        {
+            if(leghosszabb.Length < item.Length)
+            {
+                leghosszabb = item;
+            }
+        }
+
+        Console.WriteLine($"A leghosszabb sütemény neve. {leghosszabb}");
+        Console.WriteLine($"A legnagybobb értékü: {leghosszabb.Max()}");
+    }
+
+    static List<string> KezdodikEVele()
+    {
+        List<string> valogatas = new List<string>();
+        string keresett = "acm";
+        foreach (string item in sutik)
+        {
+            // if (item.StartsWith("a") || item.StartsWith("c") || item.StartsWith("m"))
+            // {
+            //     valogatas.Add(item);
+            // }
+            if (keresett.Contains(item[0]))
+            {
+                valogatas.Add(item);
+            }
+        }
+        return valogatas;
+    }
+    //Magas hangrendű sütik: teniszütő: eéiíüűöő
+
+    static void Magashang()
+    {
+        string keresett = "aáoóuú";
+        Console.Write("Magasak: ");
+        foreach (string item in sutik)
+        {
+            bool magasE = true;
+            foreach (char betu in item)
+            {
+                if (keresett.Contains(betu))
+                {
+                    magasE = false;
+                }
+            }
+
+            if (magasE)
+            {
+                Console.Write(item + ", ");
+            }
+
+        }
+
+    }
     static void Main(string[] args)
     {
-        Feltolt(20);
-        NegativSzamok();
-        Atlag();
+        // Feltolt(20);
+        // NegativSzamok();
+        // Atlag();
+        UtikElehlyezese();
+        Console.WriteLine("-----------");
+        Csokissutik();
+        if (sutik.Contains("epertorta"))
+        {
+            Console.WriteLine("Van epertorta");
+        }
+        else
+        {
+            Console.WriteLine("Nincs epertorta");
+        }
+        LeghosszabbNevu();
+        sutik.Sort();
+        foreach (string item in sutik)
+        {
+            Console.WriteLine(item);
+        }
+        List<string> kezdodik = KezdodikEVele();
+        Console.WriteLine("------------------");
+        foreach (string item in kezdodik)
+        {
+            Console.WriteLine(item);
+        }
+
+        Console.WriteLine("-----------");
+        Magashang();
     }
 }
